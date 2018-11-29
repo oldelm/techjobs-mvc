@@ -13,6 +13,9 @@
     <div th:if="${items} and ${items.size()}">
 
         <table>
+            <!-- th:each="fieldName, idx : ${job} says: automatically create an index variable "idx" -->
+            <!-- th:class="${idx.odd} ? 'odd'" says: if idx is odd, then class='odd'-->
+            <!-- then css changes odd rows to grey -->
             <tr th:each="item, idx : ${items}" th:class="${idx.odd} ? 'odd'">
                 <td><a th:href="@{/list/jobs(column=${column},value=${item})}" th:text="${item}"></a></td>
             </tr>

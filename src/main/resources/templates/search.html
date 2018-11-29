@@ -38,6 +38,46 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
+    <!-- make it a fragment so can be used elsewhere: -->
+    <!-- when use it in another file will say:
+        <div th:replace="search :: list-jobs"></div>
+        "search" makes it look in search.html.
+        and "list-jobs" tells it the name of the fragment.
+        "th:replace=" is the thymeleaf command -->
+
+    <div th:fragment="list-jobs">
+        <!-- loop over jobs and make a table for each one.
+            th:each="job :${jobs}"   will repeat whatever
+            html element we put it in for each job in ${jobs}.
+            so, if i had:   <p th:each="job :${jobs}"> </p>
+            it would create one paragraph (without contents)
+            for each job in ${jobs}-->
+
+        <!-- make it print out the number of jobs found (like in the demo): -->
+        <h3 th:text="${howMany} + ' Result(s)'" ></h3>
+        <!-- then can add howMany to the model in the controller -->
+
+        <table th:each="job : ${jobs}" th:class="job-listing">
+
+            <!-- <hr></hr> to draw a line before each table -->
+            <hr></hr>
+
+            <!-- this will create a row for each item in the job
+              (and it has the stuff to make it gray if it is an odd row)-->
+            <tr th:each="fieldName, idx : ${job}"   th:class="${idx.odd} ? 'odd'">
+
+                <!-- so, there are two td's for each row,
+                one for the key, and one for the value -->
+                <td th:text="${fieldName.key}"> </td>
+                <td th:text="${fieldName.value}"> </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+
+
 </div>
 
 </body>

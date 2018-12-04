@@ -54,7 +54,8 @@
             for each job in ${jobs}-->
 
         <!-- make it print out the number of jobs found (like in the demo): -->
-        <h3 th:text="${howMany} + ' Result(s)'" ></h3>
+        <!-- <h3 th:text="${howMany} + ' Result(s)'" ></h3> -->
+        <h3 th:if="${howMany != null}" th:text="${howMany} + ' Result(s)'" ></h3>
         <!-- then can add howMany to the model in the controller -->
 
         <table th:each="job : ${jobs}" th:class="job-listing">

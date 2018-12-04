@@ -64,7 +64,7 @@
 
             <!-- this will create a row for each item in the job
               (and it has the stuff to make it gray if it is an odd row)-->
-            <tr th:each="fieldName, idx : ${job}"   th:class="${idx.odd} ? 'odd'">
+            <tr th:each="fieldName, idx : ${job}" th:class="${idx.odd} ? 'odd'">
 
                 <!-- so, there are two td's for each row,
                 one for the key, and one for the value -->

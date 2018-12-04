@@ -31,7 +31,7 @@ public class SearchController {
     @RequestMapping(value = "results")
     public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         // ^add RequestParam before searchType and searchTerm because that's
-        // how we request them from the form
+        // how to request them from the form
 
         ArrayList<HashMap<String, String>> jobsFound;
         // ^ create jobsFound to hold all the jobs
@@ -46,6 +46,10 @@ public class SearchController {
         // add columns and jobsFound to the model:
         model.addAttribute("columns", ListController.columnChoices);
         model.addAttribute("jobs", jobsFound);
+
+        // add this to controller because jobsFound.size() tells how many things are
+        // in the ArrayList. "howMany" is what is used in the search.html template
+        model.addAttribute("howMany", jobsFound.size());
 
         return "search";
 

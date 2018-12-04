@@ -12,6 +12,12 @@
 
     <!-- TODO #3 - Use the same list display from search.html -->
 
+    <!-- it will put the same stuff that prints out one table for each job.
+        th:replace=" search means to look in search.html
+        and :list-jobs" means the fragment is called "list-jobs" -->
+
+    <div th:replace="search :: list-jobs"></div>
+
 </div>
 
 </body>

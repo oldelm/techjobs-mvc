@@ -54,14 +54,17 @@
             for each job in ${jobs}-->
 
         <!-- make it print out the number of jobs found (like in the demo): -->
+        <!-- old code:-->
         <!-- <h3 th:text="${howMany} + ' Result(s)'" ></h3> -->
+        <!-- only display number of results if howMany does not equal null -->
         <h3 th:if="${howMany != null}" th:text="${howMany} + ' Result(s)'" ></h3>
         <!-- then can add howMany to the model in the controller -->
 
         <table th:each="job : ${jobs}" th:class="job-listing">
 
             <!-- <hr></hr> to draw a line before each table -->
-            <hr></hr>
+            <!-- <hr></hr> -->
+            <!-- ^ removed because it's not in the demo -->
 
             <!-- this will create a row for each item in the job
               (and it has the stuff to make it gray if it is an odd row)-->
